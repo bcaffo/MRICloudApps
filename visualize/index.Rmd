@@ -17,6 +17,7 @@ library(treemap)
 library(RColorBrewer)
 library("magrittr")
 library(D3partitionR)
+
 ## Get the hierarchy data
 hierarchyFile = "multilevel_lookup_table.txt"
 hierarchy = read.table(hierarchyFile, header = TRUE, 
