@@ -35,12 +35,24 @@ checkboxGroupInput(inputId = "types",
                    choiceValues = 1 : 2,
                    selected = 1 : 2)
 
+radioButtons(inputId = "fixBF",
+             label = "Fix Basal Forebrain label issue?",
+             choiceNames = c("TRUE", "FALSE"),
+             choiceValues = c(TRUE, FALSE)
+             )
+
+radioButtons(inputId = "fixT2",
+            label = "Fix target2.img issue?",
+            choiceNames = c("TRUE", "FALSE"),
+            choiceValues = c(TRUE, FALSE)
+            )
+
 ## Read in the data
 dat = reactive({
     if (is.null(input$imageFiles$datapath)) NULL
     else readFileList(input$imageFiles$datapath, 
-                      fixBF = TRUE, 
-                      fixT2 = TRUE)
+                      fixBF = input$fixBF, 
+                      fixT2 = input$fixT2)
 })
     
 ## if necessary filter the data by the checkboxes
